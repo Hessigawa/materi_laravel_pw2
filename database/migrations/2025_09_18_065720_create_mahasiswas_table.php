@@ -1,3 +1,4 @@
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -13,9 +14,10 @@ return new class extends Migration
     {
         Schema::create('mahasiswas', function (Blueprint $table) {
             $table->id();
-            $table->String("NPM", 10);
-            $table->String("Nama", 75);
-            $table->String("Prodi", 50);
+            $table->string('npm', 10);
+            $table->string('nama', 50);
+            $table->foreignId('prodi_id')->constrained();
+            $table->timestamps();
         });
     }
 
